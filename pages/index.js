@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import SmallCard from "../components/SmallCard";
 
 export default function Home({ exploreData }) {
   //pull in the props
@@ -20,7 +21,11 @@ export default function Home({ exploreData }) {
           <h1 className="text-4xl font-semibold pb-5">Explore Nearby</h1>
 
           {exploreData.map((item) => (
-            <h2>{item.location}</h2>
+            <SmallCard
+              img={item.img}
+              location={item.location}
+              distance={item.distance}
+            />
           ))}
         </section>
       </main>
