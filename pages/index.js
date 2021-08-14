@@ -61,6 +61,8 @@ export default function Home({ exploreData, cardsData }) {
 }
 
 // Implementing Static Server Side Rendering
+// build all these images when deploying and everytime a use reaches the site the same
+// information get delivered
 export async function getStaticProps() {
   const exploreData = await fetch("https://links.papareact.com/pyp").then(
     (res) => res.json()

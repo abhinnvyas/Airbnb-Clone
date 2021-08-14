@@ -10,19 +10,14 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/dist/client/router";
 
-function Header() {
+function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
-
-  const resetInput = () => {
-    setSearchInput("");
-    setStartDate(new Date());
-    setEndDate(new Date());
-    setNoOfGuests(1);
-  };
+  const router = useRouter();
 
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
@@ -35,6 +30,25 @@ function Header() {
     key: "selection",
   };
 
+  const resetInput = () => {
+    setSearchInput("");
+    setStartDate(new Date());
+    setEndDate(new Date());
+    setNoOfGuests(1);
+  };
+
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput,
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests: noOfGuests,
+      },
+    });
+  };
+
   return (
     <header
       className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md
@@ -44,6 +58,7 @@ function Header() {
       <div
         className="relative flex items-center h-10 cursor-pointer
       my-auto"
+        onClick={() => router.push("/")}
       >
         <Image
           src="https://links.papareact.com/qd3"
@@ -58,7 +73,7 @@ function Header() {
         <input
           className="pl-5 flex-grow bg-transparent outline-none border-none text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
@@ -106,7 +121,12 @@ function Header() {
             >
               Cancel
             </button>
-            <button className="text-red-400 hover:text-red-500">Search</button>
+            <button
+              onClick={search}
+              className="text-red-400 hover:text-red-500"
+            >
+              Search
+            </button>
           </div>
         </div>
       )}
