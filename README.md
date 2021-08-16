@@ -4,6 +4,8 @@ This is an Airbnb Clone Created with **Nextjs**. [Click here to see the Deployed
 ![Airbnb Clone Image](md_images/image01.PNG)
 
 **[Click here to see the Deployed App.](https://airbnb-clone-abhinn.vercel.app/)**
+
+```markdown
 > Everything is **Server Side Rendered** with *Nextjs* in this Build.
 
 > This Build uses the following : 
@@ -11,6 +13,7 @@ This is an Airbnb Clone Created with **Nextjs**. [Click here to see the Deployed
 > - React
 > - Tailwind CSS
 > - Mapbox
+```
 
 # Here are some Screenshots
 
