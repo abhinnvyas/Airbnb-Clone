@@ -5,15 +5,14 @@ This is an Airbnb Clone Created with **Nextjs**. [Click here to see the Deployed
 
 **[Click here to see the Deployed App.](https://airbnb-clone-abhinn.vercel.app/)**
 
-```markdown
-> Everything is **Server Side Rendered** with *Nextjs* in this Build.
 
-> This Build uses the following : 
-> - Nextjs
-> - React
-> - Tailwind CSS
-> - Mapbox
-```
+Everything is **Server Side Rendered** with *Nextjs* in this Build.
+
+This Build uses the following : 
+- Nextjs
+- React
+- Tailwind CSS
+- Mapbox
 
 # Here are some Screenshots
 
